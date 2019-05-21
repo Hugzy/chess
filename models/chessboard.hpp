@@ -8,8 +8,4 @@ struct chessboard {
   int turn;
   std::vector<chesspiece> white_pieces;
   std::vector<chesspiece> black_pieces;
-
-  chessboard init() {
-    chessboard board
-  }
 };

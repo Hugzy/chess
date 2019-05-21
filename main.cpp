@@ -2,6 +2,10 @@
 #include <string>
 #include "core/debug.h"
 #include "game.h"
+//#include "factories/factory.h"
+
+//#include "models/chessboard.hpp"
+//#include "models/chesspiece.hpp"
 
 int main(){
   debug(core::util::LogLevel::INFO, "Starting game");
@@ -12,7 +16,9 @@ int main(){
 
   play(g);
 
-  //debug(util::LogLevel::INFO, "Game is running");
+  debug(core::util::LogLevel::INFO, "Game is running");
+//  auto board = factory::initialize_chessboard();
+//  debug(core::util::LogLevel::INFO, std::to_string(board.turn));
 
   return 0;
 }

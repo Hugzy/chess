@@ -7,13 +7,15 @@ void play(game &g) {
 
   bool gameplay = true;
   int turn = 1;
-  chessboard board (turn, initialize_pieces(core::game::WHITE), initialize_pieces(core::game::BLACK));
+  chessboard board = factory::initialize_chessboard();
+    //(turn, initialize_pieces(core::game::WHITE), initialize_pieces(core::game::BLACK));
 
   while(gameplay) {
-    
-    std::string input;
+    chesspiece piece = factory::initialize_chesspiece();
+    core::util::debug(core::util::LogLevel::INFO, "chesspiecename is: " + piece.name);
+//    std::string input;
 
-    std::cin >> input;
+//    std::cin >> input;
 
     core::util::print_inline("turn:" );
     core::util::debug(core::util::LogLevel::INFO, std::to_string(board.turn));

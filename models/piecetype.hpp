@@ -2,12 +2,12 @@
 namespace core {
   namespace game {
     enum piecetype {
-      KING,
-      QUEEN,
       ROOK,
       BISHOP,
       KNIGHT,
       PAWN,
+      KING,
+      QUEEN,
       NONE
     };
   }

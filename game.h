@@ -10,10 +10,10 @@
 struct game {
 };
 
-std::vector<chesspiece> initialize_pieces(core::game::color color);
+void announce(std::string msg);
 
 void play(game &g);
 
-
+void print_board_state(chessboard &board);
 
 

@@ -12,6 +12,8 @@ struct game {
 
 void announce(std::string msg);
 
+void move(chessboard &board, chesspiece &piece, char x, char y);
+
 void play(game &g);
 
 void print_board_state(chessboard &board);

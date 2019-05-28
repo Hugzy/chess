@@ -6,6 +6,11 @@ void announce (std::string msg) {
 
 }
 
+void move(chesspiece &piece, char x, char y) {
+    piece.x = x;
+    piece.y = y;
+}
+
 void print_pieces(std::vector<chesspiece> &vec){
 
   for (auto piece : vec) {
@@ -30,8 +35,15 @@ void play(game &g) {
   while(gameplay) {
     print_board_state(board);
     std::string input;
-    announce("Please enter where a piece should be moved to on the form piecelocation:new location");
-    std::cin >> input;
+    announce("Please enter the location of the piece that should move");
+    while(true){
+      std::cin >> input;
+      // Officially board.get_piece should return a nullptr if the piece doesn't exist
+      if(auto piece = board.get_piece(char x, char y); piece != nullptr) {
+        
+      }
+    }
+    
 
     core::util::debug(core::util::LogLevel::INFO, "Game is running");
     announce("turn:" + std::to_string(board.turn));

@@ -12,29 +12,29 @@
   std::vector<std::string> piece_names {"ROOK", "BISHOP", "KNIGHT"};
  
   core::util::debug(core::util::LogLevel::INFO, "Instantiating "+ factory::message::get_color_name(color) + " KING");
-  pcs.push_back(chesspiece(0, 0, "KING", color, core::game::KING));
+  pcs.push_back(chesspiece('0', '0', "KING", color, core::game::KING));
   core::util::debug(core::util::LogLevel::INFO, "Instantiating " + factory::message::get_color_name(color) + " QUEEN");
-  pcs.push_back(chesspiece(0, 0, "QUEEN", color, core::game::QUEEN));
+  pcs.push_back(chesspiece('0', '0', "QUEEN", color, core::game::QUEEN));
   
   // Initialize everything except KING, QUEEN and pawns
   for (int piece = core::game::ROOK; piece < core::game::PAWN; piece++) {
     for (auto i = 0; i < NUMBER_OF_DOUBLE_PIECES; i++) {
       // Initialization now has a direct dependency on piecetype enum ordering!
       core::util::debug(core::util::LogLevel::INFO, "Instantiating " + factory::message::get_color_name(color) + " " + piece_names[piece]);
-      pcs.push_back(chesspiece(0, 0, piece_names[piece] , color, static_cast<core::game::piecetype>(piece)));
+      pcs.push_back(chesspiece('0', '0', piece_names[piece] , color, static_cast<core::game::piecetype>(piece)));
     }
   }
   
   for (auto pawn = 0; pawn < MAXIMUM_NUMBER_OF_PAWNS; pawn++) {
     core::util::debug(core::util::LogLevel::INFO, "Instantiating " + factory::message::get_color_name(color) + " PAWN");
-    pcs.push_back(chesspiece(0, 0, "PAWN", color, core::game::PAWN));
+    pcs.push_back(chesspiece('0', '0', "PAWN", color, core::game::PAWN));
   }
 
   return pcs;
 }
 
 chesspiece factory::model::initialize_chesspiece(){
-  return chesspiece(0,0,"piece initialized from factory", core::game::WHITE, core::game::PAWN);
+  return chesspiece('0','0',"piece initialized from factory", core::game::WHITE, core::game::PAWN);
 }
 
 chessboard factory::model::initialize_chessboard() {

@@ -5,8 +5,8 @@
 #include "models/piecetype.hpp"
 #include "core/color.hpp"
 #include "core/debug.h"
+#include "core/board_functions.h"
 #include "factories/factory.h"
-
 struct game {
 };
 

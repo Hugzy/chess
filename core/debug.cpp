@@ -10,6 +10,10 @@ void core::util::debug(const LogLevel &l, const std::string &msg) {
       break;
     case LogLevel::ERROR:
       std::cout << "[ERROR] " << msg << std::endl;
+      break;
+    case LogLevel::DEBUG:
+      std::cout << "[ERROR] " << msg << std::endl;
+      break;
   }
 }
 

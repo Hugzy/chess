@@ -8,7 +8,8 @@ namespace core {
     enum LogLevel {
       INFO,
       WARNING,
-      ERROR
+      ERROR,
+      DEBUG
     };
 
     void debug(const util::LogLevel &l, const std::string &msg);

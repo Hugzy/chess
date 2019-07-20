@@ -12,7 +12,8 @@
 
 namespace core{
   namespace game {
-    chessboard correct_board(chessboard& board);
     result<chesspiece> get_piece(char x, char y, chessboard& cb);
+
+    chessboard correct_board(chessboard& board);
   }
 }

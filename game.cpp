@@ -28,6 +28,7 @@ void print_board_state(chessboard &board) {
 
 void play(game &g) {
 
+  const std::string delimiter = ",";
   bool gameplay = true;
   int turn = 1;
   chessboard board = factory::model::initialize_chessboard();
@@ -37,28 +38,36 @@ void play(game &g) {
   while(gameplay) {
     std::string input;
     announce("Please enter the location of the piece that should move");
-    char x = 'a';
-    char y = '1';
-    while(true) {
+    announce("Type 'q' to exit");
+    announce("the format of the string should be <piece to move>,x position,y position without spaces between commas");
+
+    //while(true) {
       // #region ensure valid userinput, both it being resonable and within what the game allows through its rules.
       std::cin >> input;
-      //todo assign x and y here
-    }
-    
-    if(auto result = core::game::get_piece(x, y, board); result.has_result) {
-      
-    }
-
     core::util::debug(core::util::LogLevel::INFO, "Game is running");
-    announce("turn:" + std::to_string(board.turn));
     if (input == "q") {
+      // for good measure
       gameplay = false;
+      break;
     }
+    announce("turn:" + std::to_string(board.turn));
+    std::string piece = input.substr(input.find(delimiter));
+    announce("piece is: " + piece);
+    input.erase(0,input.find(delimiter) + delimiter.length());
+    std::string input_x = input.substr(input.find(delimiter));
+    announce("x is: " + input_x);
+    input.erase(0,input.find(delimiter) + delimiter.length());
+    std::string input_y = input.substr(input.find(delimiter));
+    announce("y is: " + input_y);
+    input.erase(0, input.find(delimiter) + delimiter.length());
+      
 
-    
-
+    char x = input_x[0];
+    char y = input_y[0];
+    if(auto result = core::game::get_piece(x, y, board); result.has_result) {
     // Handle the atual gameplay in loop
     //
-
+    }
   }
 }
+//}
